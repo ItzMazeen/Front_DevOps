@@ -1,0 +1,20 @@
+<h2>Universities</h2>
+<ul>
+  <li *ngFor="let universite of universites">
+    {{ universite.nomUniversite }} - {{ universite.adresse }}
+  </li>
+</ul>
+
+<h2>Add or Update Université</h2>
+<form [formGroup]="universiteForm" (ngSubmit)="addOrUpdateUniversite()">
+  <label for="idUniversite">ID:</label>
+  <input type="number" formControlName="idUniversite" required>
+
+  <label for="nomUniversite">Nom:</label>
+  <input type="text" formControlName="nomUniversite" required>
+
+  <label for="adresse">Adresse:</label>
+  <input type="text" formControlName="adresse" required>
+
+  <button type="submit">Submit</button>
+</form>
