@@ -9,5 +9,6 @@ RUN npm run build --prod
 # Stage 2: Serve the app with NGINX
 FROM nginx:alpine
 COPY --from=build /app/dist/dev-ops/browser /usr/share/nginx/html
+RUN mv /usr/share/nginx/html/index.csr.html /usr/share/nginx/html/index.html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
